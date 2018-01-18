@@ -33,9 +33,19 @@ describe('postReviewV1', () => {
     done();
   });
 
-  it('postReviewV1', () => {
+  it('should return a response', () => {
     return wrapped.run({body: reviewPostData}).then((response) => {
       expect(response).to.not.be.empty;
     });
   });
+
+  it('should return an error', () => {
+  	const malformedData = Object.assign({}, reviewPostData);
+  	malformedData['user-name'] = undefined;
+
+  	return wrapped.run({body: malformedData}).then((response) => {
+  		const responseBodyParsed = JSON.parse(response.body);
+  		expect(responseBodyParsed.error).to.equal('Malformed request data');
+  	})
+  })
 });

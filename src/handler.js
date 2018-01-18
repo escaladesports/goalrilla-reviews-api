@@ -22,7 +22,7 @@ module.exports.postReviewV1 = middy((event, context, callback) => {
 			improvesGameRating: event.body['improves-game-rating'],
 			qualityRating: event.body['quality-rating'],
 			valueRating: event.body['value-rating'],
-			wouldRecommend: event.body['would-recommmend'],
+			wouldRecommend: event.body['would-recommend'],
 			userAge: event.body['user-age'],
 			userGender: event.body['user-gender'],
 			userDescription: event.body['user-description'],
@@ -38,7 +38,7 @@ module.exports.postReviewV1 = middy((event, context, callback) => {
 		}).catch(err => {
 			callback(null, {
 				body: JSON.stringify({
-					errors: [err]
+					error: err
 				})
 			})
 		});
