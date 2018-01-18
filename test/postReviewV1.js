@@ -35,7 +35,8 @@ describe('postReviewV1', () => {
 
   it('should return a response', () => {
     return wrapped.run({body: reviewPostData}).then((response) => {
-      expect(response).to.not.be.empty;
+      const responseBodyParsed = JSON.parse(response.body);
+      expect(responseBodyParsed.result).to.equal('success');
     });
   });
 

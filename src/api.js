@@ -7,6 +7,9 @@ function postReviewAction(data) {
 	// order is important, do this first so we can pass claim # to email properly
 	return store.saveReview(data)
 	.then(res => {
+		console.log('halp');
+		console.log('res:');
+		console.dir(res);
 		// add in additional information from google sheets
 		const requestId = range.getFinalRangeRow(res.updates.updatedRange);
 		const updatedData = Object.assign({}, data, { requestId });
