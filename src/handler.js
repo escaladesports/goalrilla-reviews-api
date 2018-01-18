@@ -4,7 +4,7 @@ import { load } from 'envdotjs'
 load()
 
 // Export function with middleware
-module.exports.hello = middy((event, context, callback) => {
+module.exports.postReviewV1 = middy((event, context, callback) => {
 		callback(null, {
 			body: JSON.stringify({
 				result: 'success'

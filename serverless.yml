@@ -1,4 +1,4 @@
-service: serverless-aws-boilerplate
+service: goalrilla-reviews-api
 
 provider:
   name: aws
@@ -9,8 +9,8 @@ provider:
     NODE_ENV: ${opt:stage, 'development'}
 
 functions:
-  hello:
-    handler: src/handler.hello
+  postReviewV1:
+    handler: src/handler.postReviewV1
     events:
       - http:
           path: handler
