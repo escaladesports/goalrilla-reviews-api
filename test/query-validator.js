@@ -40,4 +40,22 @@ describe('queryValidator', () => {
     expect(isValid).to.equal(false);
     done();
   });
+
+  it('queryValidator should return false if userAge value is not an int', (done) => {
+    const modifiedData = Object.assign({}, queryData);
+    modifiedData.userAge = 'ten';
+
+    const isValid = queryValidator.validateReviewPost(modifiedData);
+    expect(isValid).to.equal(false);
+    done();
+  });
+
+  it('queryValidator should return false if userAge value is higher than 8', (done) => {
+    const modifiedData = Object.assign({}, queryData);
+    modifiedData.userAge = 9;
+
+    const isValid = queryValidator.validateReviewPost(modifiedData);
+    expect(isValid).to.equal(false);
+    done();
+  });
 });
