@@ -6,7 +6,7 @@
 */
 function checkMissingKeys(keys, data) {
 	for (let key of keys) {
-		if (!data[key]) {
+		if (data[key] === undefined || !(key in data)) {
 			console.log('missing key '+key);
 			return false;
 		}
