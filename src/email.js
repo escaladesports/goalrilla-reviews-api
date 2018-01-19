@@ -5,38 +5,23 @@ const createClient = require('./email-client.js').createClient;
 	@param {String|Array.<String>} sendTo String or array of strings with email addresses of recipients
 	@returns {Promise}
 */
-function sendWarrantyRegistrationEmail(data, sendTo) {
+function sendReviewEmail(data, sendTo) {
 // take data and send to sendTo
 	const client = createClient();
-	const subject = 'New warranty registration from karnagecrossbows.com';
-	const message = `<html><body><p>Warranty registration received from karnagecrossbows.com:</p>
+	const subject = `New Goalrilla review for ${data.sku}`;
+	const message = `<html><body><p>New Goalrilla review received:</p>
 	<p>Request ID: ${data.requestId}</p>
-	<h2>Bow Information</h2>
+	<p>Date: ${data.timestamp}</p>
+	<h2>Review</h2>
 	<ul>
-		<li>Model: ${data.bowModel}</li>
-		<li>Serial number: ${data.bowSerialNumber}</li>
-		<li>Received as gift?: ${data.receivedGift}</li>
-	</ul>
-	<h2>Customer Information</h2>
-	<ul>
-		<li>First name: ${data.userFirstName}</li>
-		<li>Last name: ${data.userLastName}</li>
-		<li>Address: ${data.userAddress}</li>
-		<li>City: ${data.userCity}</li>
-		<li>State: ${data.userState}</li>
-		<li>Zip code: ${data.userZip}</li>
-		<li>Country: ${data.userCountry}</li>
-		<li>Phone: ${data.userPhone}</li>
-		<li>Email: ${data.userEmail}</li>
-	</ul>
-	<h2>Dealer Information</h2>
-	<ul>
-		<li>Store Name: ${data.dealerName}</li>
-		<li>Address: ${data.dealerAddress}</li>
-		<li>City: ${data.dealerCity}</li>
-		<li>State: ${data.dealerState}</li>
-		<li>Zip code: ${data.dealerZip}</li>
-		<li>Country: ${data.dealerCountry}</li>
+		<li>SKU: ${data.sku}</li>
+		<li>User name/alias: ${data.userName}</li>
+		<li>User email: ${data.userEmail}</li>
+		<li>User location: ${data.userLocation}</li>
+		<li>User age: ${data.userAge}</li>
+		<li>User gender: ${data.userGender}</li>
+		<li>User description: ${data.userDescription}</li>
+		<li>
 	</ul>
 	</body></html>`;
 
@@ -44,5 +29,5 @@ function sendWarrantyRegistrationEmail(data, sendTo) {
 }
 
 module.exports = {
-	sendWarrantyRegistrationEmail
+	sendReviewEmail
 }
