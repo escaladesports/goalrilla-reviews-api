@@ -48,43 +48,33 @@ function validateReviewPost(params) {
 		], params)) {
 		return false;
 	}
-	console.log('main keys ok');
 	if (!checkNumberInRange(params.productRating, 1, 5)) {
 		return false;
 	}
-	console.log('product rating ok');
 	if (checkMissingKeys(['brandRecommendRating'], params) && !checkNumberInRange(params.brandRecommendRating, 1, 10)) {
 		return false;
 	}
-	console.log('brand recommend rating ok');
 	if (!checkNumberInRange(params.improvesGameRating, 1, 5)) {
 		return false;
 	}
-	console.log('improves game rating ok');
 	if (!checkNumberInRange(params.qualityRating, 1, 5)) {
 		return false;
 	}
-	console.log('quality rating ok');
 	if (!checkNumberInRange(params.valueRating, 1, 5)) {
 		return false;
 	}
-	console.log('value rating ok');
 	if (checkMissingKeys(['userAge'], params) && !checkNumberInRange(params.userAge, 5, 8)) {
 		return false;
 	}
-	console.log('user age ok');
 	if (checkMissingKeys(['userGender'], params) && !checkNumberInRange(params.userGender, 1, 4)) {
 		return false;
 	}
-	console.log('user gender ok');
 	if (checkMissingKeys(['userDescription'], params) && !checkNumberInRange(params.userDescription, 1, 5)) {
 		return false;
 	}
-	console.log('user description ok');
 	if (checkMissingKeys(['lengthOwned'], params) && !checkNumberInRange(params.lengthOwned, 1, 6)) {
 		return false;
 	}
-	console.log('length owned ok');
 	return true;
 }
 

@@ -36,6 +36,7 @@ module.exports.postReviewV1 = middy((event, context, callback) => {
 				})
 			})
 		}).catch(err => {
+			console.error('Error: '+err);
 			callback(null, {
 				body: JSON.stringify({
 					error: err
