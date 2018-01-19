@@ -13,7 +13,7 @@ functions:
     handler: src/handler.postReviewV1
     events:
       - http:
-          path: handler
+          path: reviews
           method: post
           cors: true
 
