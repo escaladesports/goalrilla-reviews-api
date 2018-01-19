@@ -14,10 +14,10 @@ class EmailClient {
 		this.client = new sparkpost(key, options);
 	}
 
-	send(messageData, recipients) {
+	send(messageData, recipients, messageFrom) {
 		const transmission = {
 			content: {
-				from: 'noreply@escaladeinc.com',
+				messageFrom,
 				subject: messageData.subject,
 				html: messageData.message
 			},
