@@ -10,7 +10,7 @@ import timestamp from './timestamp.js'
 module.exports.postReviewV1 = middy((event, context, callback) => {
 		const params = {
 			timestamp: timestamp.createCurrentTimestamp(),
-			sku: event.body['product-id'],
+			sku: event.body['product-id'].toUpperCase(),
 			userName: event.body['user-name'],
 			userEmail: event.body['user-email'],
 			userLocation: event.body['user-location'],
