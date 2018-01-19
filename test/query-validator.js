@@ -58,4 +58,13 @@ describe('queryValidator', () => {
     expect(isValid).to.equal(false);
     done();
   });
+
+  it('queryValidator should return false if userGender value is lower than 1', (done) => {
+    const modifiedData = Object.assign({}, queryData);
+    modifiedData.userGender = (-1);
+
+    const isValid = queryValidator.validateReviewPost(modifiedData);
+    expect(isValid).to.equal(false);
+    done();
+  });
 });
