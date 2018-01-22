@@ -39,7 +39,7 @@ function appendSpreadsheet(auth, spreadsheetData, dataRows) {
 	const params = {
 		spreadsheetId: spreadsheetData.spreadsheetId,
 		range: spreadsheetData.range,
-		valueInputOption: 'RAW',
+		valueInputOption: 'USER_ENTERED',
 		resource,
 		auth
 	}
