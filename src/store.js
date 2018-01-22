@@ -1,6 +1,7 @@
 const google = require('googleapis');
 const auth = require('./auth.js');
 const sheets = google.sheets('v4');
+const storeInputParser = require('./store-input-parser');
 
 /**
 	Promise wrapper around googleapis sheets append method
@@ -72,17 +73,17 @@ function saveReview(data) {
 		data.userLocation,
 		data.reviewSummary,
 		data.reviewBody,
-		data.productRating,
+		storeInputParser.formatNumber(data.productRating),
 		data.brandRecommendationReason,
-		data.brandRecommendRating,
-		data.improvesGameRating,
-		data.qualityRating,
-		data.valueRating,
-		data.wouldRecommend,
-		data.userAge,
-		data.userGender,
-		data.userDescription,
-		data.lengthOwned
+		storeInputParser.formatNumber(data.brandRecommendRating),
+		storeInputParser.formatNumber(data.improvesGameRating),
+		storeInputParser.formatNumber(data.qualityRating),
+		storeInputParser.formatNumber(data.valueRating),
+		storeInputParser.formatBoolean(data.wouldRecommend),
+		storeInputParser.formatNumber(data.userAge),
+		storeInputParser.formatNumber(data.userGender),
+		storeInputParser.formatNumber(data.userDescription),
+		storeInputParser.formatNumber(data.lengthOwned)
 	]];
 
 	return auth.authenticateGoogleSheets(false)
