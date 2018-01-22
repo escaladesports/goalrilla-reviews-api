@@ -17,6 +17,7 @@ dist
 json
 public
 .cache
+package-lock.json
 
 # Temporary
 temp
