@@ -3,12 +3,8 @@ cache:
   directories:
     - node_modules
 script:
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then SLS_DEBUG=* serverless invoke test --stage production --compilers js:babel-core/register; fi
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then SLS_DEBUG=* serverless deploy --verbose --stage production; fi
-  - if [ "$TRAVIS_BRANCH" != "master" ]; then SLS_DEBUG=* serverless invoke test --stage $TRAVIS_BRANCH --compilers js:babel-core/register; fi
-  - if [ "$TRAVIS_BRANCH" != "master" ]; then SLS_DEBUG=* serverless deploy --verbose --stage $TRAVIS_BRANCH; fi
+  - envdotjs --unencrypt && rm env.js.enc && esca-scripts deploy --serverless
 notifications:
   email:
     on_success: never
     on_failure: always
-
