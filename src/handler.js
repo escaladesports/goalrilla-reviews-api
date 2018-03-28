@@ -8,7 +8,8 @@ import timestamp from './timestamp.js'
 
 // Export function with middleware
 module.exports.postReviewV1 = middy((event, context, callback) => {
-		console.log('Env:', process.env)
+		//console.log('Env:', process.env)
+		console.log('Body:', event.body)
 		const params = {
 			timestamp: timestamp.createCurrentTimestamp(),
 			sku: event.body['product-id'].toUpperCase(),
