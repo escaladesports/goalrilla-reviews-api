@@ -10,12 +10,12 @@ const sheets = google.sheets('v4');
 */
 function appendPromisified(params, options={}) {
 	return new Promise((resolve, reject) => {
-		sheets.spreadsheets.values.append(params, options, (err, response) => { 
+		sheets.spreadsheets.values.append(params, options, (err, response) => {
 			if (err) {
 				reject(err);
 			}
 			else {
-				resolve(response) 
+				resolve(response)
 			}
 		});
 	});
@@ -85,8 +85,10 @@ function saveReview(data) {
 		data.lengthOwned
 	]];
 
+	console.log('Authenticating google sheets...')
 	return auth.authenticateGoogleSheets(false)
 	.then(auth => {
+		console.log('Authenticated google sheets...')
 		return appendSpreadsheet(auth, spreadsheetData, rows);
 	})
 }

@@ -4,6 +4,7 @@ import range from './range.js';
 import email from './email.js';
 
 function postReviewAction(data) {
+	console.log('Saving review...')
 	// post google sheets request
 	// order is important, do this first so we can pass claim # to email properly
 	return store.saveReview(data)
@@ -31,7 +32,6 @@ module.exports = {
 		if (!queryValidator.validateReviewPost(data)) {
 			return Promise.reject('Malformed request data')
 		}
-		console.log('all ok');
 		// make request if valid
 		return postReviewAction(data);
 	}
