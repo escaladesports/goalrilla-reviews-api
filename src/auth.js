@@ -27,8 +27,6 @@ function authenticateGoogleSheets(readonly) {
 	const googleSheetsClientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL;
 	const googleSheetsKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY;
 	const scopes = [(readonly ? 'https://www.googleapis.com/auth/spreadsheets.readonly' : 'https://www.googleapis.com/auth/spreadsheets')];
-	console.log('Client email:', googleSheetsClientEmail)
-	console.log('Key:', googleSheetsKey)
 	return Promise.resolve(authorizeGoogleJWT(googleSheetsClientEmail, googleSheetsKey, scopes));
 }
 

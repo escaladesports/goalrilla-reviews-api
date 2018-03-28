@@ -12,8 +12,9 @@ function postReviewAction(data) {
 		// add in additional information from google sheets
 		const requestId = range.getFinalRangeRow(res.updates.updatedRange);
 		const updatedData = Object.assign({}, data, { requestId });
+		console.log('Sending emails to env:', process.env.REVIEW_EMAIL_LIST)
 		const emailRecipients = [ ...process.env.REVIEW_EMAIL_LIST.split(';') ];
-		console.log('sending email...');
+		console.log('Sending emails to:', emailRecipients)
 		// email relevant parties
 		return email.sendReviewEmail(updatedData, emailRecipients).then(() => {
 			console.log('email sent');
