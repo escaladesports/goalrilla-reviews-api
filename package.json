@@ -16,7 +16,7 @@
     "test-production": "serverless invoke test --stage master --compilers js:babel-core/register",
     "test-live": "SLS_DEBUG=* serverless invoke test --stage staging --compilers js:babel-core/register --live",
     "unencrypt": "envdotjs --unencrypt",
-	 "travis": "opn https://travis-ci.org/escaladesports/goalrilla-reviews-api/branches",
+    "travis": "opn https://travis-ci.org/escaladesports/goalrilla-reviews-api/branches",
     "logs": "sls logs --tail --stage staging --function postReviewV1",
     "logs-production": "sls logs --tail --stage production --function postReviewV1",
     "logs-short": "sls logs --tail --stage staging --function postReviewV1 --startTime 5m",
@@ -47,6 +47,7 @@
     "envdotjs": "^1.1.4",
     "googleapis": "^24.0.0",
     "middy": "^0.5.2",
+    "serverless-offline": "^3.18.0",
     "sparkpost": "^2.1.2"
   }
 }
