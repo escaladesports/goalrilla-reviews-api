@@ -8,6 +8,13 @@ provider:
   environment:
     NODE_ENV: ${opt:stage, 'development'}
     ENVDOTJS_KEY: ${env:ENVDOTJS_KEY}
+    #GOOGLE_SHEETS_CLIENT_EMAIL: ${env:GOOGLE_SHEETS_CLIENT_EMAIL}
+    #GOOGLE_SHEETS_PRIVATE_KEY: ${env:GOOGLE_SHEETS_PRIVATE_KEY}
+    #GOOGLE_SHEETS_SHEET_NAME: ${env:GOOGLE_SHEETS_SHEET_NAME}
+    #GOOGLE_SHEETS_SPREADSHEET_ID: ${env:GOOGLE_SHEETS_SPREADSHEET_ID}
+    #REVIEW_EMAIL_FROM: ${env:REVIEW_EMAIL_FROM}
+    #REVIEW_EMAIL_LIST: ${env:REVIEW_EMAIL_LIST}
+    #SPARKPOST_API_KEY: ${env:SPARKPOST_API_KEY}
 
 functions:
   postReviewV1:
@@ -33,3 +40,4 @@ custom:
 plugins:
   - serverless-plugin-optimize
   - serverless-mocha-plugin
+  - serverless-offline
